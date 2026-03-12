@@ -1,0 +1,150 @@
+The Harvester:
+A reconnaissance tool used to collect emails, subdomains, domains, and IP addresses from public sources.
+SYNTAX:
+1️⃣ Extract Emails & Subdomains using Bing
+theHarvester -d ibm.com -b bing
+2️⃣ Extract Emails using LinkedIn
+theHarvester -d ibm.com -b linkedin
+3️⃣ Save Results to a File
+theHarvester -d ibm.com -b bing -f ibm_results
+-----------------------------------------------------------------------------------------------------
+SHERLOCK:
+Sherlock – A tool used to find a specific username across 500+ social media platforms.
+Using Sherlock, you can search a username across many social media sites.
+
+1️⃣ Search a Username
+python3 sherlock username
+
+Example:
+
+python3 sherlock vijay
+2️⃣ Save Results to a File
+python3 sherlock vijay --output results.txt
+🔎 Check the Results
+
+You will see:
+
+✅ Where accounts exist (valid profiles)
+
+❌ False positives (site shows username but account may not exist)
+
+Example output:
+
+[+] Twitter: https://twitter.com/vijay
+[+] Instagram: https://instagram.com/vijay
+[-] Facebook: Not Found
+---------------------------------------------------------------------------------------------------
+METAGOOFIL
+A tool used to extract metadata (usernames, emails, software info) from public documents on a website.
+
+Real‑time Example using Metagoofil
+Suppose you want to extract metadata from documents on IBM website.
+
+1️⃣ Run Metagoofil
+metagoofil -d ibm.com -t pdf,doc,xls,ppt -l 20 -n 10 -o results -f ibm_report.html
+2️⃣ What this Command Does
+
+-d ibm.com → Target domain
+
+-t pdf,doc,xls,ppt → Search document types
+
+-l 20 → Limit search results
+
+-n 10 → Download 10 files
+
+-o results → Save downloaded files
+
+-f ibm_report.html → Create HTML report
+
+3️⃣ Example Information Found
+
+From document metadata you may discover:
+
+👤 Usernames (example: john.smith)
+
+📧 Emails (example: john.smith@ibm.com)
+
+💻 Software used (example: Microsoft Office)
+
+🖥 Internal computer names
+
+✅ Example output
+
+Usernames found:
+john.smith
+admin.ibmdoc
+
+Emails found:
+john.smith@ibm.com
+security@ibm.com
+
+💡 Why hackers / pentesters use this tool
+
+Find employee usernames
+
+Discover internal system names
+
+Help in social engineering attacks
+
+Metadata is data that describes other data. 📄🔍
+
+Simple Example
+
+A document file may contain hidden information such as:
+
+👤 Author name
+
+📅 Date created
+
+💻 Software used
+
+🖥 Computer name
+----------------------------------------------------------------------------------------------
+VIEWDNS
+A web tool used to view DNS records, IP information, and domain details of a "website"
+SYNTAX:
+1️⃣ Find DNS records
+dig ibm.com
+2️⃣ Find Name Servers
+dig ns ibm.com
+3️⃣ Find Mail Servers
+dig mx ibm.com
+4️⃣ Reverse IP Lookup
+host 8.8.8.8
+---------------------------------------------------------------------------------------------------
+WAYBACK MACHINE:
+A tool that shows old versions of websites saved from previous years.
+It works like a time machine for websites.
+
+You enter a website URL
+
+It shows how the website looked in the past
+
+Example
+
+If you search google.com, you can see:
+
+Google website in 2005
+
+Google website in 2010
+
+Google website in 2020
+
+SYNTAX:
+1️⃣ Get all archived URLs
+echo "ibm.com" | waybackurls
+2️⃣ Find Old Login Pages
+echo "ibm.com" | waybackurls | grep login
+3️⃣ Find Old Directory Structure
+echo "ibm.com" | waybackurls | grep "/"
+4️⃣ Save Results
+echo "ibm.com" | waybackurls > ibm_old_urls.txt
+
+✅ This helps you discover:
+
+🔑 Old login pages
+
+📂 Old directories
+
+🗂 Hidden or deleted pages from the past.
+---------------------------------------------------------------------------------------------------------
