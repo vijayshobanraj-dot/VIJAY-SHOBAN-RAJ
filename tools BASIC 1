@@ -1,0 +1,84 @@
+TOOLS
+recog-ng:
+A reconnaissance tool used to gather information about domains, networks, and people during security investigations.
+synax:
+workspace create tesla
+add domains tesla.com
+modules load recon/domains-hosts/bing_domain_web
+run
+
+TO FIND EMAIL:
+modules load recon/domains-contacts/whois_pocs
+run
+
+TO FIND IP AD:
+modules load recon/hosts-hosts/resolve
+run
+------------------------------------------------------------------------------------------------------------------------------------------------
+NETDISCOVER:
+A tool used to discover devices and IP addresses connected to a local network.
+SYNTAX:
+sudo netdiscover -r 192.168.1.0/24
+Scan the whole network
+sudo netdiscover
+2️⃣ Scan a specific network range
+sudo netdiscover -r 192.168.1.0/24
+3️⃣ Passive scan (does not send packets)
+sudo netdiscover -p
+4️⃣ Find your device IP
+ip a
+5️⃣ Find the Gateway IP
+ip route
+---------------------------------------------------------------------------------------------------------
+NSLOOKUP:
+A command-line tool used to query DNS servers to find domain IP addresses and DNS records like ms mx and ns.
+SYNTAX:
+1️⃣ Find MX record of zoho.com
+nslookup -type=mx zoho.com
+2️⃣ Find Name Servers of github.com
+nslookup -type=ns github.com
+3️⃣ Find IP address of a website
+
+Example:
+nslookup google.com
+-type=mx → Mail servers 📧
+
+-type=ns → Name servers 🌐
+
+nslookup domain → IP address 🔎
+--------------------------------------------------------------------------------------------------
+DNSenum:
+A tool used to gather DNS information like subdomains, name servers, and IP addresses of a domain.
+syntax:
+Basic DNS Enumeration
+dnsenum tesla.com
+2️⃣ Find Subdomains
+dnsenum --enum tesla.com
+3️⃣ Find Name Servers
+dnsenum tesla.com | grep "Name Servers"
+4️⃣ Find Mail Servers
+dnsenum tesla.com | grep "Mail"
+----------------------------------------------------------------------------------------------------
+DNSrecon 
+A tool used to gather detailed DNS information like subdomains, records, and zone transfers of a domain.
+all in one advanced 
+SYNTAX:
+Using dnsenum
+dnsenum tesla.com
+2️⃣ Using DNSRecon
+dnsrecon -d tesla.com
+3️⃣ Using nslookup
+Find Name Servers
+nslookup -type=ns tesla.com
+Find Mail Servers
+nslookup -type=mx tesla.com
+Find IP Address
+nslookup tesla.com
+
+✅ Purpose of comparison
+
+Tool	    Use
+dnsenum	  Finds subdomains, DNS records
+dnsrecon	Advanced DNS enumeration
+nslookup	Basic DNS query tool
+
